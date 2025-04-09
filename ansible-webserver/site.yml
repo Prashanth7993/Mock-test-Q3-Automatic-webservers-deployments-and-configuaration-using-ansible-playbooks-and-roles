@@ -1,0 +1,19 @@
+---
+- name: Configure Webservers
+  hosts: webservers
+  become: yes
+  vars_files:
+    - group_vars/all/vault.yml
+
+  tasks:
+    - name: Ping servers
+      ping:
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
+        update_cache: yes
+
+  roles:
+    - webserver
