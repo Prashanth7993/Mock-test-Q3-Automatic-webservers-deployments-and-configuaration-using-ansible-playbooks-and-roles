@@ -1,0 +1,20 @@
+---
+# tasks/main.yml
+- name: Install Python3
+  apt:
+   name: python3
+   state: present
+  become: yes
+  when: ansible_os_family == "Debian"
+- name: Create configuration directory
+  file:
+   path: /etc/python_app
+   state: directory
+   mode: '0755'
+  become: yes
+- name: Deploy application configuration file
+  template:
+   src: config.yml.j2
+   dest: /etc/python_app/config.yml
+   mode: '0644'
+  become: yes

@@ -1,0 +1,11 @@
+name: Sample JSON File
+hosts:
+ - name: web1.abc.com
+   port: 2222
+ - name: web2.abc.com
+   port: 22
+fruits:
+ orange:
+  weight: 250grm
+ banana:
+  weight: 500grm

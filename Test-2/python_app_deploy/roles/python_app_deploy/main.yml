@@ -1,0 +1,16 @@
+---
+- name: Install Python3
+  apt:
+   name: python3
+   state: present
+  become: yes
+- name: Create configuration directory
+  file:
+   path: /etc/python_app
+   state: directory
+   mode: '0755'
+- name: Deploy application configuration
+  template:
+   src: config.yml.j2
+   dest: /etc/python_app/config.yml
+   mode: '0644'

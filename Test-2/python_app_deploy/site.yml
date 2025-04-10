@@ -1,0 +1,5 @@
+---
+- name: Deploying python application with config
+  hosts: all
+  roles:
+    - python_app_deploy

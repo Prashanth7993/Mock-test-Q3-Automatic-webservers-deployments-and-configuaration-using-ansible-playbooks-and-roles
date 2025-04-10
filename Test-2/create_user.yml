@@ -1,0 +1,19 @@
+---
+- name: Create a user and add to sudousers group
+  hosts: webservers
+  become: yes
+  vars:
+    username: devuser
+  tasks:
+    - name: Ensure sudousers group exists
+      group:
+        name: sudousers
+        state: present
+    - name: Create user with home directory and add to sudousers group
+      user:
+        name: "{{ username }}"
+        state: present
+        create_home: yes
+        groups: sudousers
+        append: yes
+

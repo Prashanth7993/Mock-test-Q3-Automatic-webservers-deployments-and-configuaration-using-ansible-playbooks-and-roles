@@ -1,0 +1,4 @@
+---
+# defaults file for python_app_deploy
+app_env: production
+debug_mode: flase
